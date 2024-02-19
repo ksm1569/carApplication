@@ -15,7 +15,7 @@ public interface CarRepository extends CrudRepository<Car, Long> {
     List<Car> findByColor(String color);
 
     // 연도로 car 객체 가져오기
-    List<Car> findByYear(int year);
+    List<Car> findByManufactureYear(int year);
 
     // 브랜드와 모델로 car 객체 가져오기
     List<Car> findByBrandAndModel(String brand, String model);
@@ -24,7 +24,7 @@ public interface CarRepository extends CrudRepository<Car, Long> {
     List<Car> findByBrandOrColor(String brand, String color);
 
     // 브랜드로 검색 후 연도 역순으로 정렬해서 가져오기
-    List<Car> findByBrandOrderByYearDesc(String brand);
+    List<Car> findByBrandOrderByManufactureYearDesc(String brand);
 
     // SQL문을 이용해서 브랜드로 자동차를 검색
     @Query("select c from Car c where c.brand = ?1")
